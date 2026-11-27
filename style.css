@@ -1,0 +1,323 @@
+/* General Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fffaf7;
+    color: #333;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Header using Flexbox */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6%;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px #00000015;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: orangered;
+}
+
+.navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px 6%;
+    gap: 20px;
+}
+
+.navbar.open {
+    display: flex;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: orangered;
+}
+
+.login {
+    text-decoration: none;
+    color: orangered;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    border: none;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+/* Hero Section */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 30px;
+    padding: 50px 6%;
+    background-color: #fff0e8;
+}
+
+.hero-content h1 {
+    font-size: clamp(30px, 5vw, 55px);
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    background-color: orangered;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: darkred;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+
+/* Common Section */
+
+.section {
+    padding: 50px 6%;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+
+/* Food Categories using Grid */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.category {
+    background-color: white;
+    text-align: center;
+    padding: 20px 5px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px #00000010;
+    transition: 0.3s;
+}
+
+.category span {
+    font-size: 35px;
+}
+
+.category h3 {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Restaurant Search */
+
+#search {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    margin: 0 auto 30px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 15px;
+}
+
+
+/* Restaurant Grid */
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+
+/* Restaurant Card */
+
+.restaurant-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    /* Container query */
+    container-type: inline-size;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px #00000020;
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 18px;
+}
+
+.card-content h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    color: #16834b;
+    margin-bottom: 12px;
+}
+
+.card-content h4 {
+    color: orangered;
+}
+
+
+/* Container Query */
+
+@container (min-width: 320px) {
+
+    .card-content {
+        padding: 22px;
+    }
+
+    .card-content h3 {
+        font-size: 23px;
+    }
+
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    line-height: 2;
+}
+
+
+/* Tablet Responsive Design */
+
+@media (min-width: 600px) {
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        background: transparent;
+    }
+
+    .hero {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .categories {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* Desktop Responsive Design */
+
+@media (min-width: 900px) {
+
+    .header {
+        padding: 20px 10%;
+    }
+
+    .hero,
+    .section {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-image img {
+        height: 350px;
+    }
+
+}
